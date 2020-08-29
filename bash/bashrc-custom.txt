@@ -3,3 +3,5 @@ function cheat(){ echo "`curl --silent cheat.sh/$1`"; }
 alias python=python3
 alias vim="nvim"
 export PS1="[\[\e[0;37m\]\#:\$?:\\$:\[\e[0;32m\]\W\[\e[0;37m\]]> \[\e[0m\]\[$(tput sgr0)\]"
+ipa () { ip -br -c a s $1 ; }
+ipd () { ip -c -d -s -s -s a s $1 ; }
