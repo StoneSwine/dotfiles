@@ -1,5 +1,5 @@
 "## INTRO
-  "Dependencies: the_silver_searcher, vim-plug, pynvim, cmake, go
+  "Dependencies: the_silver_searcher, vim-plug, pynvim, cmake, go, npm
 
 "### BUILT IN VIM SETTINGS
   " Leave insert mode faster.. I also never write something with double j's in
