@@ -91,20 +91,34 @@ set foldlevel=20
 
 " install plugins with vim-plug
 call plug#begin()
-"FZF {{{
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug 'junegunn/fzf.vim'
-
-  nnoremap <C-f> :Files<Cr>
-  nnoremap <C-p> :Ag<Cr>
-
-"}}}
-
-"NERDtree {{{
-  Plug 'preservim/nerdtree'
-
-  map <C-n> :NERDTreeToggle<CR>
-  map <C-l> :NERDTreeFind<CR>
-  let g:NERDTreeDirArrows=0
-"}}}
+  "fzf {{{
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'junegunn/fzf.vim'
+  
+    nnoremap <C-f> :Files<Cr>
+    nnoremap <C-p> :Ag<Cr>
+  
+  "}}}
+  
+  "NERDtree {{{
+    Plug 'preservim/nerdtree'
+  
+    map <C-n> :NERDTreeToggle<CR>
+    map <C-l> :NERDTreeFind<CR>
+    let g:NERDTreeDirArrows=0
+  "}}}
+  
+  
+  "deoplete {{{
+    if has('nvim')
+      Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    else
+      Plug 'Shougo/deoplete.nvim'
+      Plug 'roxma/nvim-yarp'
+      Plug 'roxma/vim-hug-neovim-rpc'
+    endif
+    let g:deoplete#enable_at_startup = 1
+    inoremap <expr><C-j>  pumvisible() ? "\<C-n>" : "\<TAB>"
+    inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+  "}}}
 call plug#end()
