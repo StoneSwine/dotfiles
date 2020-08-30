@@ -1,5 +1,5 @@
 "## INTRO
-  "Dependencies: the_silver_searcher, vim-plug
+  "Dependencies: the_silver_searcher, vim-plug, pynvim, cmake, go
 
 "### BUILT IN VIM SETTINGS
   " Leave insert mode faster.. I also never write something with double j's in
@@ -114,7 +114,18 @@
       let g:NERDTreeDirArrows=0
     "}}}
     
-    
+    "YouCompleteMe {{{
+      Plug 'Valloric/YouCompleteMe', { 'dir': '~/.ycm', 'do': './install.py --all' }
+      nnoremap <F5>           :YcmForceCompileAndDiagnostics<CR>
+      nnoremap <leader>gic    :vsplit<CR><c-w><right>:YcmCompleter GoToInclude<CR>
+      nnoremap <leader>gdc    :vsplit<CR><c-w><right>:YcmCompleter GoToDeclaration<CR>
+      nnoremap <leader>gdf    :vsplit<CR><c-w><right>:YcmCompleter GoToDefinition<CR>
+      nnoremap <leader>gip    :vsplit<CR><c-w><right>:YcmCompleter GoToImprecise<CR>
+      nnoremap <leader>f      :YcmCompleter FixIt<CR>
+      nnoremap <F9>           :YcmCompleter FixIt<CR>
+    "}}}
+
+
     "deoplete {{{
       " install process
       if has('nvim')
@@ -131,3 +142,4 @@
       inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<S-Tab>"
     "}}}
   call plug#end()
+
