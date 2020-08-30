@@ -2,7 +2,7 @@
 inoremap jj <ESC>
 set shiftwidth=2
 
-" Change mapleader from to <space>
+" Change mapleader to <space>
 let mapleader = " "
 
 nnoremap ; :
@@ -23,6 +23,7 @@ syntax on
 set tabstop=2
 set shiftwidth=2
 set expandtab
+
 " Kill the arrow keys
 nnoremap <up> <nop>
 nnoremap <down> <nop>
@@ -49,48 +50,18 @@ set encoding=utf-8
 set nocp
 filetype plugin on
 
-" Improve performance
-"let g:loaded_matchparen=1
-"set nolist
-"set nonumber
-"set ttyfast
 set lazyredraw
 
-" Custom C++ indentation
-"set cino=g0,N-s,i4
-"autocmd BufEnter *.h :setlocal cindent cino=j1,(0,ws,Ws
-"autocmd BufEnter *.cpp :setlocal cindent cino=j1,(0,ws,Ws
-
-map <F2> i <%   %><LEFT><LEFT><LEFT><LEFT>
-map <F3> i <%=   %><LEFT><LEFT><LEFT><LEFT>
 set wildmode=longest:full
 set wildmenu
 set textwidth=0
 set wrapmargin=1
 set hlsearch
-"set tw=120
 set wrap
 set cin
-"set spell
 
 " fix copy-paste
 set t_BE=
-
-" disable preview window on autocomplete
-set completeopt-=preview
-
-"map <C-LEFT> :tabp<CR>
-"map <C-RIGHT> :tabn<CR>
-map <C-PageUp> :tabp<CR>
-map <C-PageDown> :tabn<CR>
-map <C-LEFT> <c-w><
-map <C-RIGHT> <c-w>>
-map <C-UP> <c-w>-
-map <C-DOWN> <c-w>+
-map <A-LEFT> <c-w><left>
-map <A-RIGHT> <c-w><right>
-map <A-UP> <c-w><up>
-map <A-DOWN> <c-w><down>
 
 " Tab navigation like Firefox.
 nnoremap th  :tabfirst<CR>
@@ -127,5 +98,13 @@ call plug#begin()
   nnoremap <C-f> :Files<Cr>
   nnoremap <C-p> :Ag<Cr>
 
+"}}}
+
+"NERDtree {{{
+  Plug 'preservim/nerdtree'
+
+  map <C-n> :NERDTreeToggle<CR>
+  map <C-l> :NERDTreeFind<CR>
+  let g:NERDTreeDirArrows=0
 "}}}
 call plug#end()
